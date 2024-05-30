@@ -3,10 +3,11 @@ const app = express();
 const articleRouter = require("./routes/article");
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/').then(console.log('connected to db3'))
+mongoose.connect('mongodb://localhost:27017/blog').then(console.log('connected to db3'))
 
 app.set("view engine", "ejs");
 app.use("/articles", articleRouter);
+app.use(express.urlencoded({extended : false}))
 
 app.get("/", (req, res) => {
   const articles = [
