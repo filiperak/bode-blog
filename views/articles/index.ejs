@@ -26,6 +26,10 @@
                     <a href="articles/<%= elem.slug  %>" class="btn btn-primary">
                       Read More
                     </a>
+
+                    <form action="/articles/<%= elem.id %>?_method=DELETE" method="POST" class="d-inline">
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                    </div>
                 </div>
        <% }) %>
